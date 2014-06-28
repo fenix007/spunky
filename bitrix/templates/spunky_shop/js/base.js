@@ -178,7 +178,8 @@ $(function() {
     },400);
   };
 
-  $(".login-buton").click(showPopup.bind($(".popup.login"),window.event,true,128))
+  $(".login-buton").click(
+      showPopup.bind($(".popup.login"),window.Event,true,128))
   $(".popup .close").click(function (event) {
     event.preventDefault();
     $(".popup").fadeOut(200).promise().then(function() {
