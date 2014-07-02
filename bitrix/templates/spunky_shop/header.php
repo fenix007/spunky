@@ -22,9 +22,9 @@ CJSCore::Init(array("fx"));
   <script src="<?=SITE_TEMPLATE_PATH?>/js/base.js"></script>
   <script>
     $(function() {
-      setTimeout(function() {
+      /*setTimeout(function() {
         showPopup2.call($(".popup.to-catalog"),false,false)
-      },2000)
+      },2000)*/
     })
   </script>
   <?$APPLICATION->ShowHead();?>

@@ -15,38 +15,12 @@ setlocale(LC_MONETARY, 'ru_RU');
 if (!empty($arResult['ITEMS'])):
   foreach ($arResult['ITEMS'] as $key => $arItem):
     $price      = '';
-    $price_ex   = '';
-    if (!empty($arItem['MIN_PRICE']))
+    if($arItem['PRICES'] && isset($arItem['PRICES']['BASE']) && isset($arItem['PRICES']['BASE']['PRINT_VALUE']))
     {
-      if ('N' == $arParams['PRODUCT_DISPLAY_MODE'] && isset($arItem['OFFERS']) && !empty($arItem['OFFERS']))
-      {
-        $price = GetMessage(
-          'CT_BCS_TPL_MESS_PRICE_SIMPLE_MODE',
-          array(
-            '#PRICE#' => $arItem['MIN_PRICE']['PRINT_DISCOUNT_VALUE'],
-            '#MEASURE#' => GetMessage(
-              'CT_BCS_TPL_MESS_MEASURE_SIMPLE_MODE',
-              array(
-                '#VALUE#' => $arItem['MIN_PRICE']['CATALOG_MEASURE_RATIO'],
-                '#UNIT#' => $arItem['MIN_PRICE']['CATALOG_MEASURE_NAME']
-              )
-            )
-          )
-        );
-      }
-      else
-      {
-        $price = money_format('%.2n', $arItem['MIN_PRICE']['PRINT_DISCOUNT_VALUE']);
-      }
-      if ('Y' == $arParams['SHOW_OLD_PRICE'] && $arItem['MIN_PRICE']['DISCOUNT_VALUE'] < $arItem['MIN_PRICE']['VALUE'])
-      {
-        $price_ex = $price . '<span>' . money_format('%.2n', $arItem['MIN_PRICE']['PRINT_VALUE']) . '</span>';
-      }
-      else{
-        $price_ex = $price;
-      }
-    }?>
-
+      $price = $arItem['PRICES']['BASE']['PRINT_VALUE'];
+    }
+    //var_dump($arItem['PRICES']['BASE']);
+?>
     <div class="item">
       <div class="hover">
         <div class="name"><?= $arItem['NAME'] ?></div>

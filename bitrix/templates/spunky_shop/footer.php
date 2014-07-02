@@ -1,4 +1,4 @@
-<!-- content -->
+</div><!-- content-items -->
 <div class="watched-items">
   <div class="sep"></div>
   <p class="ttl-watched">просмотренные товары</p>

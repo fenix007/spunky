@@ -1216,6 +1216,9 @@ footer .brand-img {
   height: 32px;
   display: block;
 }
+.content-items{
+  overflow: hidden;
+}
 .content-items .item {
   width: 320px;
   height: 320px;
