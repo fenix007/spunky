@@ -14,18 +14,15 @@ $this->setFrameMode(true);
 setlocale(LC_MONETARY, 'ru_RU');
 if (!empty($arResult['ITEMS'])):
   foreach ($arResult['ITEMS'] as $key => $arItem):
-    $price      = '';
-    if($arItem['PRICES'] && isset($arItem['PRICES']['BASE']) && isset($arItem['PRICES']['BASE']['PRINT_VALUE']))
-    {
-      $price = $arItem['PRICES']['BASE']['PRINT_VALUE'];
-    }
-    //var_dump($arItem['PRICES']['BASE']);
+    $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
+    $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
+    //logVar($arItem['PRICES']['BASE']);exit;
 ?>
     <div class="item">
       <div class="hover">
         <div class="name"><?= $arItem['NAME'] ?></div>
         <div class="border"></div>
-        <div class="price2"><?= $price ?></div>
+        <div class="price2"><?= $arItem['PRICE_POINT'] ?></div>
         <a href="<?= $arItem['BUY_URL']?>" class="get">БЕРУ!</a>
         <a href="<?= $arItem['DETAIL_PAGE_URL']; ?>" class="detail">Подробнее</a>
         <a href="#" class="fav"></a>
@@ -48,7 +45,7 @@ if (!empty($arResult['ITEMS'])):
       </div>
       <i class="ico label"></i>
       <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'];?>" alt="">
-      <div class="price"><i></i><?= $price_ex ?> руб.</div>
+      <div class="price"><i></i><?= $arItem['PRICE'] ?> руб.</div>
     </div>
 <?endforeach;
 endif;?>

@@ -1225,6 +1225,7 @@ footer .brand-img {
   float: left;
   position: relative;
   background-color: #fff;
+  overflow: hidden;
 }
 .content-items .item .ico {
   display: inline-block;
@@ -3606,4 +3607,8 @@ input {
 .regwrap .col {
   float: none !important;
   margin: 0 auto;
+}
+
+.bx-context-toolbar-empty-area{
+    overflow: hidden;
 }
