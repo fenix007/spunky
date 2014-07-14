@@ -251,7 +251,7 @@ body .content {
   padding: 0px 10px;
   width: 960px;
   margin: auto;
-  padding-bottom: 570px;
+  padding-bottom: 670px;
 }
 body footer {
   height: 570px;
@@ -319,6 +319,10 @@ header .line1 .login {
   float: right;
   width: 215px;
 }
+header .popup.login {
+  float: none;
+  width: 403px;
+}
 header .line1 .login.logged .not-logged {
   display: none;
 }
@@ -362,7 +366,7 @@ header .line1 .login .logged .nic:hover {
 header .line1 .login .logged ul {
   display: none;
 }
-header .line1 .login .logged:hover ul {
+header .line1 .login .logged:hover ul, header .line1 .login .logged ul:hover {
   position: absolute;
   top: 42px;
   width: 100%;
@@ -370,6 +374,7 @@ header .line1 .login .logged:hover ul {
   line-height: 48px;
   background-color: #404041;
   border-radius: 0 0 3px 3px;
+  z-index: 100;
 }
 header .line1 .login .logged:hover ul a {
   padding-left: 40px;
@@ -807,21 +812,23 @@ header .line4 ul li a:hover {
 .content .watched-items .all-items:hover {
   text-decoration: none;
 }
-.content .upper-footer {
+footer .upper-footer {
   height: 130px;
   padding-right: 420px;
+  position: absolute;
+  top: -132px;
 }
-.content .upper-footer .pay-options {
+footer .upper-footer .pay-options {
   margin-top: -30px;
 }
-.content .upper-footer .pay-options a {
+footer .upper-footer .pay-options a {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
   padding: 0 13px;
   height: 130px;
 }
-.content .upper-footer .pay-options a:hover {
+footer .upper-footer .pay-options a:hover {
   opacity: .7;
 }
 footer .top-f {
@@ -3611,4 +3618,9 @@ input {
 
 .bx-context-toolbar-empty-area{
     overflow: hidden;
+}
+
+.spunky_error{
+    text-align: center;
+    margin-top: -10px;
 }

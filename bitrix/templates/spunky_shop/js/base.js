@@ -179,20 +179,24 @@ $(function() {
   };
 
   $(".login-buton").click(
-      showPopup.bind($(".popup.login"),window.Event,true,128))
+      showPopup.bind($(".popup.login"),window.Event,true,128)
+  );
   $(".popup .close").click(function (event) {
     event.preventDefault();
     $(".popup").fadeOut(200).promise().then(function() {
       $(".screenBlock").css("display","none")
     })
   })
+  $(".logout_butt").click(function(){
+    $(this).parents('.logged:first').find('.logout_form').submit();
 
-
-
-
-
-
-
+    return false;
+  });
+  //***auth popup: errors***
+  if(_AUTH_FORM && _login && _AUTH_ERROR)
+  {
+    $(".login-buton").click();
+  }
 
 
 

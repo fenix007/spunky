@@ -27,6 +27,33 @@ CJSCore::Init(array("fx"));
       },2000)*/
     })
   </script>
+
+  <!--php to javascript vars-->
+  <?
+    $php_to_js = array(
+      'login',
+      'AUTH_FORM',
+      'AUTH_ERROR'
+    );
+  ?>
+  <script type="text/javascript">
+    <?foreach($php_to_js as $key => $val):?>
+        _<?=$val?>=false;
+    <?endforeach;?>
+    <?if(isset($APPLICATION->arAuthResult) && $APPLICATION->arAuthResult['TYPE'] === 'ERROR'):?>
+      _AUTH_ERROR= true;
+    <?endif;?>
+    <?foreach($_POST as $key => $val):?>
+      <?if(in_array($key, $php_to_js)):?>
+        _<?=$key?>=<?='"' . $val . '"'?>;
+      <?endif;?>
+    <?endforeach;?>
+    <?foreach($_GET as $key => $val):?>
+      <?if(in_array($key, $php_to_js)):?>
+        _<?=$key?>=<?='"' . $val . '"'?>;
+      <?endif;?>
+    <?endforeach;?>
+  </script>
   <?$APPLICATION->ShowHead();?>
   <title><?$APPLICATION->ShowTitle()?></title>
 </head>
@@ -35,18 +62,7 @@ CJSCore::Init(array("fx"));
 
 <div class="wrapper">
 <div class="screenBlock"></div>
-<div class="popup login">
-  <a href="#" class="close"><span>Отмена</span><i></i></a>
-  <p class="name">CHECK IN </p>
-  <form action="login">
-    <input type="text" placeholder="Логин">
-    <input type="text" placeholder="Пароль">
-    <a href="#" class="forget">Забыли пароль?</a>
-    <div class="clr"></div>
-    <button>Готово!</button>
-    <a href="#" class="register">Регистрация</a>
-  </form>
-</div>
+
 <div class="popup to-catalog">
   <a href="#" class="close"><span>Позже</span><i></i></a>
   <p>В каталоге много <br>нового! <a href="#">Пойдём?</a> </p>
@@ -64,24 +80,14 @@ CJSCore::Init(array("fx"));
         <li><a href="#">КОНТАКТЫ</a></li>
         <li><a href="#">FEEDBACK</a></li>
       </ul>
-      <div class="login"> <!-- добавить клас logged если пользователь залогинен-->
-        <div class="not-logged">
-          <a href="#" class="login-buton">CHECK IN</a>&nbsp;&nbsp;/&nbsp;&nbsp;
-          <a href="#">регистрация</a>
-        </div>
-        <div class="logged">
-          <a href="#" class="nic">andreano_chelentano1986</a>
-          <ul>
-            <li><a href="#"><i class="i1"></i>Профиль</a></li>
-            <li><a href="#" class="actvie"><i class="i2"></i>История покупок</a></li>
-            <li><a href="#"><i class="i3"></i>Выйти</a></li>
-          </ul>
-        </div>
-      </div>
-      <ul class="socials">
-        <li><a href="#" style="background-position: 0px 0px;"></a></li>
-        <li><a href="#" style="background-position: -27px 0px;"></a></li>
-      </ul>
+      <?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "spunky", array(
+          "REGISTER_URL" => "",
+          "FORGOT_PASSWORD_URL" => "",
+          "PROFILE_URL" => "",
+          "SHOW_ERRORS" => "Y"
+        ),
+        false
+      );?>
     </div>
   </div>
   <div class="line2">
@@ -134,272 +140,3 @@ CJSCore::Init(array("fx"));
   </div>
 </header>
 <!-- Хедер закончился-->
-<div class="content main">
-  <div class="slider">
-    <div class="slides_container">
-      <div>
-        <img src="<?=SITE_TEMPLATE_PATH?>/pic/slider/slide1.png" alt="">
-        <div class="caption">
-          <p class="p1">проспишь все  <span>скидки!</span></p>
-          <p class="p2">А ну ка ходи <a href="#">сюда</a></p>
-        </div>
-      </div>
-      <div>
-        <img src="<?=SITE_TEMPLATE_PATH?>/pic/slider/slide2.png" alt="">
-        <div class="caption">
-          <p class="p1">проспишь все  <span>скидки 2!</span></p>
-          <p class="p2">А ну ка ходи <a href="#">сюда</a></p>
-        </div>
-      </div>
-      <div>
-        <img src="<?=SITE_TEMPLATE_PATH?>/pic/slider/slide1.png" alt="">
-        <div class="caption">
-          <p class="p1">проспишь все  <span>скидки 3!</span></p>
-          <p class="p2">А ну ка ходи <a href="#">сюда</a></p>
-        </div>
-      </div>
-      <div>
-        <img src="<?=SITE_TEMPLATE_PATH?>/pic/slider/slide2.png" alt="">
-        <div class="caption">
-          <p class="p1">проспишь все  <span>скидки 4!</span></p>
-          <p class="p2">А ну ка ходи <a href="#">сюда</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- content -->
-  <p class="page-title"><i></i>НОВИНКИ<i></i></p>
-  <form action="filter" class="filters">
-    <div class="group">
-      <div class="filt type">
-        <p class="name">Тип:</p>
-        <div class="item cap"><i></i></div>
-        <div class="item t-shirt"><i></i></div>
-        <div class="item jacket"><i></i></div>
-        <div class="item shoes"><i></i></div>
-      </div>
-      <div class="filt size">
-        <p class="name">Размер:</p>
-        <div class="item cap">
-          <span>XS</span>
-          <div class="dr-down">
-            <i></i>
-            <ul>
-              <li>
-                <a href="javascript:void(0)" class="active">
-                  <span>XS</span>
-                  <input type="radio" name="rad1" value="XS" checked>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>S</span>
-                  <input type="radio" name="rad1" value="S">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>M</span>
-                  <input type="radio" name="rad1" value="M">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>L</span>
-                  <input type="radio" name="rad1" value="L">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>XL</span>
-                  <input type="radio" name="rad1" value="XL">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>XXL</span>
-                  <input type="radio" name="rad1" value="XXL">
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="item t-shirt">
-          <span>L</span>
-          <div class="dr-down">
-            <i></i>
-            <ul>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>XS</span>
-                  <input type="radio" name="rad1" value="XS">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>S</span>
-                  <input type="radio" name="rad1" value="S">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>M</span>
-                  <input type="radio" name="rad1" value="M">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)" class="active">
-                  <span>L</span>
-                  <input type="radio" name="rad1" value="L" checked>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>XL</span>
-                  <input type="radio" name="rad1" value="XL">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>XXL</span>
-                  <input type="radio" name="rad1" value="XXL">
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="item jacket">
-          <span>L</span>
-          <div class="dr-down">
-            <i></i>
-            <ul>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>XS</span>
-                  <input type="radio" name="rad1" value="XS">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>S</span>
-                  <input type="radio" name="rad1" value="S">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>M</span>
-                  <input type="radio" name="rad1" value="M">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)" class="active">
-                  <span>L</span>
-                  <input type="radio" name="rad1" value="L" checked>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>XL</span>
-                  <input type="radio" name="rad1" value="XL">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>XXL</span>
-                  <input type="radio" name="rad1" value="XXL">
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="item shoes">
-          <span>44</span>
-          <div class="dr-down">
-            <i></i>
-            <ul>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>40</span>
-                  <input type="radio" name="rad1" value="40">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>41</span>
-                  <input type="radio" name="rad1" value="41">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>42</span>
-                  <input type="radio" name="rad1" value="42">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>43</span>
-                  <input type="radio" name="rad1" value="43">
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)" class="active">
-                  <span>44</span>
-                  <input type="radio" name="rad1" value="44" checked>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0)">
-                  <span>45</span>
-                  <input type="radio" name="rad1" value="45">
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="color">
-      <div class="wisible-part">
-        <i class="col"></i>
-        <p>Цвет:</p>
-      </div>
-      <a href="#" class="addColorv"><i></i></a>
-      <div class="drop">
-        <div class="in">
-          <p class="ttl">Выберите цвета</p>
-          <a href="#" class="side1">Выбрать все</a>
-          <a href="#" class="side2">Любой</a>
-          <div class="clr"></div>
-          <a href="#" class="item-color no-gr" style="background-color: #fff;"><i class="bgw"></i><input type="checkbox"></a>
-          <a href="#" class="item-color no-gr" style="background-color: #aaa;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color no-gr" style="background-color: #888;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color no-gr" style="background-color: #444;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color no-gr" style="background-color: #111;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #ffa100;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #ff0000;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color selected" style="background-color: #ffed00;"><i></i><input type="checkbox" checked></a>
-          <a href="#" class="item-color" style="background-color: #9dff00;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #009bff;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #b1ff00;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color selected" style="background-color: #00ffae;"><i></i><input type="checkbox" checked></a>
-          <a href="#" class="item-color" style="background-color: #009bff;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color selected" style="background-color: #0012ff;"><i></i><input type="checkbox" checked></a>
-          <a href="#" class="item-color" style="background-color: #ff00e8;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #ffa100;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #ff0000;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #ffed00;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #9dff00;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #009bff;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #b1ff00;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #00ffae;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #009bff;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #0012ff;"><i></i><input type="checkbox"></a>
-          <a href="#" class="item-color" style="background-color: #ff00e8;"><i></i><input type="checkbox"></a>
-          <div class="clr"></div>
-        </div>
-      </div>
-    </div>
-    <a href="#" class="reset"><i></i>Сбросить</a>
-  </form>
-
-  <div class="content-items">
