@@ -92,30 +92,27 @@ CJSCore::Init(array("fx"));
   </div>
   <div class="line2">
     <div class="in">
-      <?$APPLICATION->IncludeComponent(
-        "bitrix:main.include",
-        "",
-        Array(
-          "AREA_FILE_SHOW" => "page",
-          "AREA_FILE_SUFFIX" => "header_top",
-          "EDIT_TEMPLATE" => ""
-        ),
-        false
-      );?>
+      <?$APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
+	"AREA_FILE_SHOW" => "sect",
+	"AREA_FILE_SUFFIX" => "header_top",
+	"AREA_FILE_RECURSIVE" => "Y",
+	"EDIT_TEMPLATE" => ""
+	),
+	false
+);?>
     </div>
   </div>
   <div class="line3">
     <div class="in">
       <div class="brands">
-        <?$APPLICATION->IncludeComponent(
-          "bitrix:main.include",
-          "",
-          Array(
-            "AREA_FILE_SHOW" => "page",
-            "AREA_FILE_SUFFIX" => "icons_on_main",
-            "EDIT_TEMPLATE" => ""
-          )
-        );?>
+        <?$APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
+	"AREA_FILE_SHOW" => "sect",
+	"AREA_FILE_SUFFIX" => "icons_on_main",
+	"AREA_FILE_RECURSIVE" => "Y",
+	"EDIT_TEMPLATE" => ""
+	),
+	false
+);?>
       </div>
       <form action="search" class="search">
         <input type="text" placeholder="Что будем искать?">

@@ -12,7 +12,7 @@ $prices_class = array(
 );
 
 $labels_class = array(
-  'NEWPRODUCT'  => 'new-product',
+'NEWPRODUCT'  => 'new-product',
 );
 
 if (!empty($arResult['ITEMS'])):
