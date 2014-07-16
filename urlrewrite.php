@@ -7,8 +7,8 @@ $arUrlRewrite = array(
 		"PATH" => "/bitrix/services/ymarket/index.php",
 	),
 	array(
-		"CONDITION" => "#^/([A-Za-z0-9-]+).html.*\$#",
-		"RULE" => "ELEMENT_CODE=\$1",
+		"CONDITION" => "#^/([A-Za-z-]+)-([0-9]+).html.*\$#",
+		"RULE" => "ELEMENT_CODE=\$1&ELEMENT_ID=\$2",
 		"ID" => "",
 		"PATH" => "/catalog/product_detail.php",
 	),

@@ -8,154 +8,73 @@ $APPLICATION->SetTitle("Карточка товара");
 <!-- content -->
  <a href="#" class="button-back" >НАЗАД</a> 
   <p class="breadcrumbs"> <a href="#" class="home" ><span></span><i></i></a> <a href="#" >Толстовки<i></i></a> <a href="#" >Chikana<i></i></a> <span>Mexico Chika (Raoul Roudrigez)</span> </p>
- 
-  <div class="detail-item"> 
-    <div class="left-side"> 
-      <div class="tov-type"><i class="jacket"> 
-<!--.cap, .t-shirt, .jacket, .shoes-->
- </i></div>
-     
-      <p class="price"><i></i>2.100 руб.</p>
-     
-      <div class="color"> <i></i> 
-        <div class="select"> 
-          <div class="sel-visible"> 
-            <div style="background-color: rgb(77, 255, 208);"></div>
-           </div>
-         <i class="trigger"></i> 
-          <div class="sel-list-wr"> 
-            <div class="col1"> 
-              <div class="co1"> <a href="#" class="item-col2" style="background-color: #ff0000;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col2" style="background-color: #ffed00;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col2" style="background-color: #9dff00;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col2" style="background-color: #009bff;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col2" style="background-color: #b1ff00;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col2" style="background-color: #00ffae;" ><i></i><input type="checkbox" /></a> </div>
-             
-              <div class="co2"> <a href="#" class="item-col2 selected" style="background-color: #ffed00;" ><i></i><input type="checkbox" checked="" /></a> <a href="#" class="item-col2" style="background-color: #9dff00;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col2" style="background-color: #009bff;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col2" style="background-color: #b1ff00;" ><i></i><input type="checkbox" /></a> </div>
-             </div>
-           
-            <div class="clr"></div>
-           </div>
-         </div>
-       </div>
-     
-      <div id="showcase" class="showcase"> 
-        <div class="showcase-slide"> 
-          <div class="showcase-content"> <img src="pic/item-slider/slide1.png" alt="01"  /> </div>
-         
-          <div class="showcase-thumbnail" style="background-image: url(http://spunky.local/catalog/pic/item-slider/slide1.png);"></div>
-         </div>
-       
-        <div class="showcase-slide"> 
-          <div class="showcase-content"> <img src="pic/item-slider/slide2.png" alt="02"  /> </div>
-         
-          <div class="showcase-thumbnail" style="background-image: url(http://spunky.local/catalog/pic/item-slider/slide2.png);"></div>
-         </div>
-       
-        <div class="showcase-slide"> 
-          <div class="showcase-content"> <img src="pic/item-slider/slide1.png" alt="01"  /> </div>
-         
-          <div class="showcase-thumbnail" style="background-image: url(http://spunky.local/catalog/pic/item-slider/slide1.png);"></div>
-         </div>
-       
-        <div class="showcase-slide"> 
-          <div class="showcase-content"> <img src="pic/item-slider/slide2.png" alt="02"  /> </div>
-         
-          <div class="showcase-thumbnail" style="background-image: url(http://spunky.local/catalog/pic/item-slider/slide2.png);"></div>
-         </div>
-       
-        <div class="showcase-slide"> 
-          <div class="showcase-content"> <img src="pic/item-slider/slide1.png" alt="01"  /> </div>
-         
-          <div class="showcase-thumbnail" style="background-image: url(http://spunky.local/catalog/pic/item-slider/slide1.png);"></div>
-         </div>
-       </div>
-     </div>
-   
-    <div class="right-side"> <a href="#" class="fav" ></a> 
-      <div class="share-wrap"> <a href="#" class="share" ></a> 
-        <div class="wrap-shared-popup"> 
-          <div class="shared-popup"> <i></i> <a href="#" class="ico1" ></a> <a href="#" class="ico2" ></a> <a href="#" class="ico3" ></a> <a href="#" class="ico4" ></a> <a href="#" class="ico5" ></a> <a href="#" class="ico6" ></a> <a href="#" class="ico7" ></a> </div>
-         </div>
-       </div>
-     
-      <p class="type">ТОЛСТОВКА CHIKANA </p>
-     
-      <p class="name">MEXICO CHIKA</p>
-     
-      <p class="by-who">by raoul roudrigez</p>
-     
-      <div class="sep-min"></div>
-     
-      <p class="text">Толстовка, из коллекции Chikana личной работы 
-        <br />
-       известного мексиканского дизайнера и члена 
-        <br />
-       картеля &laquo;ZazaParaza&raquo; &mdash; Рауля Радригеза </p>
-     
-      <div class="sep-min"></div>
-     
-      <div class="params"> 
-        <div class="select"> 
-          <div class="sel-visible"> 
-            <div class="color"> <i></i> 
-              <div style="background-color: rgb(77, 255, 208);"></div>
-             </div>
-           
-            <div class="size"> <i></i> <span><span>L</span> (50 cm)</span> </div>
-           <i class="trigger"></i> 
-            <div class="clr"></div>
-           </div>
-         
-          <div class="sel-list-wr"> 
-            <div class="col1"> 
-              <div class="co1"> <a href="#" class="item-col" style="background-color: #ff0000;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col" style="background-color: #ffed00;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col" style="background-color: #9dff00;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col" style="background-color: #009bff;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col" style="background-color: #b1ff00;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col" style="background-color: #00ffae;" ><i></i><input type="checkbox" /></a> </div>
-             
-              <div class="co2"> <a href="#" class="item-col selected" style="background-color: #ffed00;" ><i></i><input type="checkbox" checked="" /></a> <a href="#" class="item-col" style="background-color: #9dff00;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col" style="background-color: #009bff;" ><i></i><input type="checkbox" /></a> <a href="#" class="item-col" style="background-color: #b1ff00;" ><i></i><input type="checkbox" /></a> </div>
-             </div>
-           
-            <div class="col2"> 
-              <ul> 
-                <li> <a href="javascript:void(0)" > <span class="tp" data-sm="(50cm)">XS</span> <i class="isOffer is"></i> <span class="price">1.500 руб.</span> <input type="radio" name="rad1" value="XS" /> </a> </li>
-               
-                <li> <a href="javascript:void(0)" > <span class="tp" data-sm="(50cm)">S</span> <i class="isOffer"></i> <span class="price">1.500 руб.</span> <input type="radio" name="rad1" value="S" /> </a> </li>
-               
-                <li> <a href="javascript:void(0)" > <span class="tp" data-sm="(70cm)">M</span> <i class="isOffer"></i> <span class="price">1.500 руб.</span> <input type="radio" name="rad1" value="M" /> </a> </li>
-               
-                <li> <a href="javascript:void(0)" class="active" > <span class="tp" data-sm="(80cm)">L</span> <i class="isOffer"></i> <span class="price">1.500 руб.</span> <input type="radio" name="rad1" value="L" checked="" /> </a> </li>
-               
-                <li> <a href="javascript:void(0)" > <span class="tp" data-sm="(90cm)">XL</span> <i class="isOffer is"></i> <span class="price">1.500 руб.</span> <input type="radio" name="rad1" value="XL" /> </a> </li>
-               
-                <li> <a href="javascript:void(0)" > <span class="tp" data-sm="(100cm)">XXL</span> <i class="isOffer"></i> <span class="price">1.500 руб.</span> <input type="radio" name="rad1" value="XXL" /> </a> </li>
-               </ul>
-             </div>
-           
-            <div class="clr"></div>
-           </div>
-         </div>
-       </div>
-     
-      <div class="by"> 
-        <div class="in-order"><i></i>под заказ</div>
-       <a href="#" class="backet" ></a> <a href="#" class="get" >БЕРУ!</a> 
-        <div class="clr"></div>
-       </div>
-     
-      <div class="contain"> 
-        <p class="ttl">СОСТАВ:</p>
-       
-        <div class="col col1"> 
-          <p> <span class="sp1">Хлопок</span> <span class="bb"></span> <span class="sp2">80%</span> </p>
-         
-          <p> <span class="sp1">Хлопок</span> <span class="bb"></span> <span class="sp2">80%</span> </p>
-         </div>
-       
-        <div class="col col2"> 
-          <p> <span class="sp1">Хлопок</span> <span class="bb"></span> <span class="sp2">80%</span> </p>
-         
-          <p> <span class="sp1">Хлопок</span> <span class="bb"></span> <span class="sp2">80%</span> </p>
-         </div>
-       </div>
-     </div>
-   
-    <div class="clr"></div>
-   </div>
+<?$APPLICATION->IncludeComponent(
+  "bitrix:catalog.element",
+  "spunky",
+  Array(
+    "TEMPLATE_THEME" => "blue",
+    "DISPLAY_NAME" => "Y",
+    "DETAIL_PICTURE_MODE" => "IMG",
+    "ADD_DETAIL_TO_SLIDER" => "N",
+    "DISPLAY_PREVIEW_TEXT_MODE" => "E",
+    "PRODUCT_SUBSCRIPTION" => "N",
+    "SHOW_DISCOUNT_PERCENT" => "N",
+    "SHOW_OLD_PRICE" => "N",
+    "SHOW_MAX_QUANTITY" => "N",
+    "DISPLAY_COMPARE" => "N",
+    "MESS_BTN_BUY" => "Купить",
+    "MESS_BTN_ADD_TO_BASKET" => "В корзину",
+    "MESS_BTN_SUBSCRIBE" => "Подписаться",
+    "MESS_NOT_AVAILABLE" => "Нет в наличии",
+    "USE_VOTE_RATING" => "N",
+    "USE_COMMENTS" => "N",
+    "BRAND_USE" => "N",
+    "IBLOCK_TYPE" => "catalog",
+    "IBLOCK_ID" => "5",
+    "ELEMENT_ID" => $_REQUEST["ELEMENT_ID"],
+    "ELEMENT_CODE" => $_REQUEST["ELEMENT_CODE"],
+    "SECTION_ID" => $_REQUEST["SECTION_ID"],
+    "SECTION_CODE" => "",
+    "SECTION_URL" => "",
+    "DETAIL_URL" => "",
+    "SECTION_ID_VARIABLE" => "SECTION_ID",
+    "META_KEYWORDS" => "-",
+    "META_DESCRIPTION" => "-",
+    "BROWSER_TITLE" => "-",
+    "SET_TITLE" => "Y",
+    "SET_STATUS_404" => "N",
+    "ADD_SECTIONS_CHAIN" => "Y",
+    "ADD_ELEMENT_CHAIN" => "N",
+    "PROPERTY_CODE" => array(),
+    "OFFERS_LIMIT" => "0",
+    "PRICE_CODE" => array(),
+    "USE_PRICE_COUNT" => "N",
+    "SHOW_PRICE_COUNT" => "1",
+    "PRICE_VAT_INCLUDE" => "Y",
+    "PRICE_VAT_SHOW_VALUE" => "N",
+    "BASKET_URL" => "/personal/basket.php",
+    "ACTION_VARIABLE" => "action",
+    "PRODUCT_ID_VARIABLE" => "id",
+    "USE_PRODUCT_QUANTITY" => "N",
+    "PRODUCT_QUANTITY_VARIABLE" => "quantity",
+    "ADD_PROPERTIES_TO_BASKET" => "Y",
+    "PRODUCT_PROPS_VARIABLE" => "prop",
+    "PARTIAL_PRODUCT_PROPERTIES" => "N",
+    "PRODUCT_PROPERTIES" => array(),
+    "LINK_IBLOCK_TYPE" => "",
+    "LINK_IBLOCK_ID" => "",
+    "LINK_PROPERTY_SID" => "",
+    "LINK_ELEMENTS_URL" => "link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#",
+    "CACHE_TYPE" => "A",
+    "CACHE_TIME" => "36000000",
+    "CACHE_NOTES" => "",
+    "CACHE_GROUPS" => "Y",
+    "USE_ELEMENT_COUNTER" => "Y",
+    "HIDE_NOT_AVAILABLE" => "N",
+    "CONVERT_CURRENCY" => "N"
+  ),
+  false
+);?>
  
   <p class="block-title"><i></i>ПОХОЖИЕ ВЕЩИ<i></i></p>
  
