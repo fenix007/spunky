@@ -1,0 +1,33 @@
+footer.error_404{
+    height: auto;
+}
+footer.error_404 img{
+    padding: 50px;
+}
+.content.error_404{
+    padding-bottom: 580px;
+    /*width: 300px;*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px !important;
+    margin-top: -200px;
+}
+.content.error_404 .error_404_wrap{
+    overflow: hidden;
+    margin-left: -250px;
+    margin-top: 50px;
+}
+.content.error_404 .error_404_left{
+    float: left;
+}
+.content.error_404 .error_404_right{
+    float: left;
+    padding: 50px;
+    font-size: 52px;
+    text-transform: uppercase;
+    font-family: "AABebasNeueRegular";
+}
+body.error_404{
+    background: #fff;
+}

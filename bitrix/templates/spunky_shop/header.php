@@ -57,7 +57,7 @@ CJSCore::Init(array("fx"));
   <?$APPLICATION->ShowHead();?>
   <title><?$APPLICATION->ShowTitle()?></title>
 </head>
-<body>
+<body <?if(ERROR_404 === 'Y'):?>class="error_404"<?endif?>>
 <div id="panel"><?$APPLICATION->ShowPanel();?></div>
 
 <div class="wrapper">
@@ -90,50 +90,56 @@ CJSCore::Init(array("fx"));
       );?>
     </div>
   </div>
-  <div class="line2">
-    <div class="in">
-      <?$APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
-	"AREA_FILE_SHOW" => "sect",
-	"AREA_FILE_SUFFIX" => "header_top",
-	"AREA_FILE_RECURSIVE" => "Y",
-	"EDIT_TEMPLATE" => ""
-	),
-	false
-);?>
-    </div>
-  </div>
-  <div class="line3">
-    <div class="in">
-      <div class="brands">
+
+  <?if(ERROR_404 !== 'Y'):?>
+
+    <div class="line2">
+      <div class="in">
         <?$APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
-	"AREA_FILE_SHOW" => "sect",
-	"AREA_FILE_SUFFIX" => "icons_on_main",
-	"AREA_FILE_RECURSIVE" => "Y",
-	"EDIT_TEMPLATE" => ""
-	),
-	false
-);?>
+          "AREA_FILE_SHOW" => "sect",
+          "AREA_FILE_SUFFIX" => "header_top",
+          "AREA_FILE_RECURSIVE" => "Y",
+          "EDIT_TEMPLATE" => ""
+          ),
+          false
+        );?>
       </div>
-      <form action="search" class="search">
-        <input type="text" placeholder="Что будем искать?">
-        <button></button>
-      </form>
     </div>
-  </div>
-  <div class="line4">
-    <div class="in">
-      <ul>
-        <li><a href="#" class="active">НОВИНКИ</a></li>
-        <li><a href="#">БЕЙСБОЛКИ</a></li>
-        <li><a href="#">ТОЛСТОВКИ</a></li>
-        <li><a href="#">ЖИЛЕТЫ</a></li>
-        <li><a href="#">NBA</a></li>
-        <li><a href="#">NHL</a></li>
-        <li><a href="#">NFL</a></li>
-        <li><a href="#">MLB</a></li>
-        <li class="last"><a href="#">NCAA</a></li>
-      </ul>
+    <div class="line3">
+      <div class="in">
+        <div class="brands">
+          <?$APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
+              "AREA_FILE_SHOW" => "sect",
+              "AREA_FILE_SUFFIX" => "icons_on_main",
+              "AREA_FILE_RECURSIVE" => "Y",
+              "EDIT_TEMPLATE" => ""
+              ),
+              false
+            );?>
+        </div>
+        <form action="search" class="search">
+          <input type="text" placeholder="Что будем искать?">
+          <button></button>
+        </form>
+      </div>
     </div>
-  </div>
+    <div class="line4">
+      <div class="in">
+        <ul>
+          <li><a href="#" class="active">НОВИНКИ</a></li>
+          <li><a href="#">БЕЙСБОЛКИ</a></li>
+          <li><a href="#">ТОЛСТОВКИ</a></li>
+          <li><a href="#">ЖИЛЕТЫ</a></li>
+          <li><a href="#">NBA</a></li>
+          <li><a href="#">NHL</a></li>
+          <li><a href="#">NFL</a></li>
+          <li><a href="#">MLB</a></li>
+          <li class="last"><a href="#">NCAA</a></li>
+        </ul>
+      </div>
+    </div>
+
+  <?endif;?>
+
 </header>
 <!-- Хедер закончился-->
