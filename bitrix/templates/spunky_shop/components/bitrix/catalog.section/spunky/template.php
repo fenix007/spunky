@@ -16,11 +16,41 @@ if (!empty($arResult['ITEMS'])):
   foreach ($arResult['ITEMS'] as $key => $arItem):
     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
     $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
+    $strMainID = $this->GetEditAreaId($arItem['ID']);
+    $arItemIDs = array(
+      'ID' => $strMainID,
+      'PICT' => $strMainID.'_pict',
+      'SECOND_PICT' => $strMainID.'_secondpict',
+
+      'QUANTITY' => $strMainID.'_quantity',
+      'QUANTITY_DOWN' => $strMainID.'_quant_down',
+      'QUANTITY_UP' => $strMainID.'_quant_up',
+      'QUANTITY_MEASURE' => $strMainID.'_quant_measure',
+      'BUY_LINK' => $strMainID.'_buy_link',
+      'SUBSCRIBE_LINK' => $strMainID.'_subscribe',
+
+      'PRICE' => $strMainID.'_price',
+      'DSC_PERC' => $strMainID.'_dsc_perc',
+      'SECOND_DSC_PERC' => $strMainID.'_second_dsc_perc',
+
+      'PROP_DIV' => $strMainID.'_sku_tree',
+      'PROP' => $strMainID.'_prop_',
+      'DISPLAY_PROP_DIV' => $strMainID.'_sku_prop',
+      'BASKET_PROP_DIV' => $strMainID.'_basket_prop',
+    );
     //logVar($arItem['PRICES']['BASE']);exit;
 ?>
+  <div class="bx_catalog_item_container" id="<? echo $strMainID; ?>">
     <div class="item">
       <div class="hover">
-        <div class="name"><?= $arItem['NAME'] ?></div>
+        <?if(isset($arItem['DISCLAIMER']) && $arItem['DISCLAIMER']):?>
+          <div class="disclaimer"><?=$arItem['DISCLAIMER']?></div>
+          <div class="name name_disclaimer">
+        <?else:?>
+          <div class="name">
+        <?endif;?>
+          <?= $arItem['NAME'] ?>
+        </div>
         <div class="border"></div>
         <div class="price2"><?= $arItem['PRICE_POINT'] ?></div>
         <a href="<?= $arItem['BUY_URL']?>" class="get">БЕРУ!</a>
@@ -45,7 +75,20 @@ if (!empty($arResult['ITEMS'])):
       </div>
       <i class="ico label"></i>
       <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'];?>" alt="">
-      <div class="price"><i></i><?= $arItem['PRICE'] ?> руб.</div>
+      <div class="price <?= $arItem['PRICE_CLASS'] ?>"><i></i>
+        <?
+          if(in_array('DISCOUNT', $arItem['PRICE_TYPE']))
+          {?>
+            <div class="old"><?=$arItem['PRICE'] . $arItem['PRICE_CURRENCY']?></div>
+            <div class="is"><?=$arItem['DISCOUNT_PRICE'] . $arItem['PRICE_CURRENCY']?></div>
+        <?}
+          else
+          {
+            echo $arItem['PRICE'] . $arItem['PRICE_CURRENCY'];
+          }
+        ?>
+      </div>
     </div>
+  </div>
 <?endforeach;
 endif;?>
