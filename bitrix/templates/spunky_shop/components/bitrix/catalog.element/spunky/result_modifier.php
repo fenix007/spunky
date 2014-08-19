@@ -5,58 +5,28 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var array $arResult */
 
 $prices_class = array(
-  'BASE'        => '',
-  'DISCOUNT'    => 'new-price',
-  'SALELEADER'  => 'hot',
-  'SPECIAL'     => 'red'
+  'BASE'          => '',
+  'DISCOUNT'      => 'new-price',
+  'SALELEADER'    => 'hot',
+  'SPECIALOFFER'  => 'red'
 );
 
-$labels_class = array(
+//учитывается только один самый последний дисклэймер
+$disclamers = array(
+  'NEWPRODUCT'    =>  'новинка!',
+  'SPECIALOFFER'  =>  'специальное предложение!',
+  'SALELEADER'    =>  'хит продаж!',
+  'DISCOUNT'      =>  'скидка',
+);
+
+$label_class = array(
   'NEWPRODUCT'  => 'new-product',
 );
 
-if (!empty($arResult['ITEMS'])):
-  foreach ($arResult['ITEMS'] as $key => $arItem):
-    //***default $arItem values***
-    $arResult['ITEMS'][$key]['PRICE']         = '';
-    $arResult['ITEMS'][$key]['PRICE_POINT']   = '';
-    $arResult['ITEMS'][$key]['PRICE_TYPE']    = 'base';
-    $arResult['ITEMS'][$key]['PRICE_CLASS']   = $prices_class[$arResult['ITEMS'][$key]['PRICE_TYPE']];
-    $arResult['ITEMS'][$key]['LABELS_TYPE']   = array();
-    $arResult['ITEMS'][$key]['LABELS_CLASS']  = '';
+if (!empty($arResult)):
 
-    //***calculate prices value***
-    if(isset($arItem['PRICES']['BASE']['VALUE_VAT']))
-    {
-      $arResult['ITEMS'][$key]['PRICE'] = $arItem['PRICES']['BASE']['VALUE_VAT'];
-    }
-    $arResult['ITEMS'][$key]['PRICE_POINT'] = pricePoint($arResult['ITEMS'][$key]['PRICE']);
+  //**** format item, add custom fields ****
+  $arResult = formatItem($arResult, $prices_class, $disclamers, $label_class);
 
-    //***check prices type and class***
-    if(isset($arItem['PROPERTIES']['SALELEADER']) && trim($arItem['PROPERTIES']['SALELEADER']['VALUE']))
-    {
-      $arResult['ITEMS'][$key]['PRICE_TYPE'] = 'SALELEADER';
-    }
-    elseif(isset($arItem['PROPERTIES']['SALELEADER']) && trim($arItem['PROPERTIES']['SALELEADER']['VALUE']))
-    {
-
-    }
-    $arResult['ITEMS'][$key]['PRICE_CLASS'] = $prices_class[$arResult['ITEMS'][$key]['PRICE_TYPE']];
-
-    //***check labels type and class***
-    if(isset($arItem['PROPERTIES']['NEWPRODUCT']) && trim($arItem['PROPERTIES']['NEWPRODUCT']['VALUE']))
-    {
-      $arResult['ITEMS'][$key]['LABELS_TYPE'] = 'NEWPRODUCT';
-    }
-    elseif(isset($arItem['PROPERTIES']['SALELEADER']) && trim($arItem['PROPERTIES']['SALELEADER']['VALUE']))
-    {
-
-    }
-    $arResult['ITEMS'][$key]['LABELS_CLASS'] = $labels_class[$arResult['ITEMS'][$key]['LABELS_TYPE']];
-
-    //var_dump(); exit;
-    $x = 3;
-    //$price = $arItem['PRICE']['VAT_VALUE'];
-  endforeach;
 endif;
 ?>
